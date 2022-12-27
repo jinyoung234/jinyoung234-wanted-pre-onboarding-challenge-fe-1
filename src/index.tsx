@@ -10,13 +10,11 @@ const queryClient = new QueryClient()
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RecoilRoot>
-        <GlobalStyle />
-        <Client />
-        <ReactQueryDevtools initialIsOpen panelProps={{style: {height: 250}}} />
-      </RecoilRoot>
-    </QueryClientProvider>
-  </React.StrictMode>,
+  <QueryClientProvider client={queryClient}>
+    <RecoilRoot>
+      <GlobalStyle />
+      <Client />
+      <ReactQueryDevtools initialIsOpen panelProps={{style: {height: 250}}} />
+    </RecoilRoot>
+  </QueryClientProvider>,
 )
