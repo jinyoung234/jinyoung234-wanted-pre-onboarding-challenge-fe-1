@@ -3,6 +3,7 @@ import {useForm} from 'react-hook-form'
 import {getSignUp} from '../../api/auth'
 import useConnect from '../../hooks/useConnect'
 import {emailRegex} from '../../utils/regex'
+import Button from '../common/Button'
 import ErrorText from '../common/ErrorText'
 import Input from '../common/Input'
 import Label from '../common/Label'
@@ -33,7 +34,7 @@ function SignUpForm() {
         <Label label={'PW'} htmlFor='pw' />
         <Input connectRef={connectPWRef} type='password' id='pw' {...pwRest} />
         {errors && <ErrorText message={errors?.pw?.message} />}
-        <button disabled={!(emailRegex.test(watch().id) && watch().pw.length >= 8)}>등록</button>
+        <Button context='등록' disabledCondition={!(emailRegex.test(watch().id) && watch().pw.length >= 8)} />
       </form>
     </>
   )
