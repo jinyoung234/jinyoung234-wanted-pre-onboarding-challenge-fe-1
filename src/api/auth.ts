@@ -19,4 +19,16 @@ const getSignUp = async (obj: IFormData) => {
   }
 }
 
-export {getSignUp}
+const getSignIn = async (obj: IFormData) => {
+  try {
+    const response = await client.post(END_POINT.POST_SIGN_IN, obj)
+    console.log(response)
+    return response
+  } catch (error) {
+    const {response} = error as unknown as AxiosError
+    const {details} = response?.data as unknown as IErrorMessage
+    if (response?.status === 400) alert(details)
+  }
+}
+
+export {getSignUp, getSignIn}
