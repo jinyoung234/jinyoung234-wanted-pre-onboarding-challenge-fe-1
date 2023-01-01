@@ -2,11 +2,15 @@ import React from 'react'
 import {NavWrapper} from './style'
 
 function NavBar() {
+  const handleLogout = () => {
+    window.localStorage.removeItem('token')
+    window.location.href = '/auth/login'
+  }
   return (
     <nav>
       <NavWrapper>
         <li>ToDoList</li>
-        <li>로그아웃</li>
+        <li onClick={handleLogout}>로그아웃</li>
       </NavWrapper>
     </nav>
   )
