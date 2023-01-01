@@ -1,7 +1,7 @@
 import React from 'react'
 import {InputProps} from './type'
 
-function Input({connectRef, isEnter, pwRef, type, id, ...props}: InputProps) {
+function Input({connectRef, isEnter, pwRef, ...rest}: InputProps) {
   const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') pwRef?.current?.focus()
   }
@@ -9,9 +9,7 @@ function Input({connectRef, isEnter, pwRef, type, id, ...props}: InputProps) {
     <input
       ref={e => connectRef?.(e as HTMLInputElement)}
       onKeyDown={isEnter ? e => handleEnter(e) : undefined}
-      type={type}
-      id={id}
-      {...props}
+      {...rest}
     />
   )
 }

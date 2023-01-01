@@ -1,5 +1,5 @@
 import {AxiosError} from 'axios'
-import {IFormData} from '../components/SignUpForm/type'
+import {IFormData} from '../components/auth/SignUpForm/type'
 import {client} from '../utils/axiosInstance'
 import {END_POINT} from '../utils/endpoint'
 
