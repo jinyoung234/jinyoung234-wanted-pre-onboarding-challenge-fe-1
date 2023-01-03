@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from '../../components/common/NavBar'
+import CreateToDo from '../../components/main/CreateToDo'
 import {MainPage} from '../../containers/main/MainPageContainer'
 
 function MainTemplate() {
@@ -7,7 +8,7 @@ function MainTemplate() {
     <div>
       <NavBar />
       <MainPage>
-        <div></div>
+        <CreateToDo />
       </MainPage>
     </div>
   )

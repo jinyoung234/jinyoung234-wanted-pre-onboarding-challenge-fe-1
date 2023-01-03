@@ -1,4 +1,5 @@
 import React from 'react'
+import {useLocation} from 'react-router-dom'
 import Button from '../../components/common/Button'
 import ErrorText from '../../components/common/ErrorText'
 import Input from '../../components/common/Input'
@@ -12,9 +13,18 @@ export const Form = Object.assign(FormContainer, {
   ErrorText,
 })
 
+export const ToDoAddForm = Object.assign(FormContainer, {
+  Button,
+  Input,
+})
+
 function FormContainer({children, handleSubmit}: FormContainerProps) {
+  const {pathname} = useLocation()
   return (
-    <form style={{display: 'flex', flexDirection: 'column'}} onSubmit={handleSubmit}>
+    <form
+      style={pathname === '/' ? {display: 'row'} : {display: 'flex', flexDirection: 'column'}}
+      onSubmit={handleSubmit}
+    >
       {children}
     </form>
   )
