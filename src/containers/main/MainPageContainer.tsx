@@ -1,9 +1,9 @@
 import React from 'react'
-import {ToDoContainerProps} from './type'
+import {MainPageContainerProps} from './type'
 
-export const ToDoList = Object.assign(ToDoContainer, {})
+export const MainPage = Object.assign(MainPageContainer, {})
 
-function ToDoContainer({children}: ToDoContainerProps) {
+function MainPageContainer({children}: MainPageContainerProps) {
   React.useEffect(() => {
     const accessToken = window.localStorage.getItem('token')
     console.log(accessToken)
@@ -15,4 +15,4 @@ function ToDoContainer({children}: ToDoContainerProps) {
   return <div>{children}</div>
 }
 
-export default ToDoContainer
+export default MainPageContainer

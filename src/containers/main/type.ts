@@ -1,7 +1,7 @@
 import {ReactNode} from 'react'
 
-interface ToDoContainerProps {
+interface MainPageContainerProps {
   children: ReactNode
 }
 
-export type {ToDoContainerProps}
+export type {MainPageContainerProps}

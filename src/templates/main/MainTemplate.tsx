@@ -1,14 +1,14 @@
 import React from 'react'
 import NavBar from '../../components/common/NavBar'
-import ToDoContainer from '../../containers/main/ToDoContainer'
+import {MainPage} from '../../containers/main/MainPageContainer'
 
 function MainTemplate() {
   return (
     <div>
       <NavBar />
-      <ToDoContainer>
+      <MainPage>
         <div></div>
-      </ToDoContainer>
+      </MainPage>
     </div>
   )
 }
