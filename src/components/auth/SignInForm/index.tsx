@@ -2,7 +2,7 @@ import React from 'react'
 import {useForm} from 'react-hook-form'
 import {getSignIn} from '../../../api/auth'
 import useConnect from '../../../hooks/useConnect'
-import {Form} from '../../../containers/auth/FormContainer'
+import {Form} from '../../../containers/common/FormContainer'
 import {emailRegex} from '../../../utils/regex'
 import {IFormData} from '../SignUpForm/type'
 
