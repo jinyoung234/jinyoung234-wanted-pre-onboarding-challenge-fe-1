@@ -4,4 +4,12 @@ interface MainPageContainerProps {
   children: ReactNode
 }
 
-export type {MainPageContainerProps}
+interface IToDoData {
+  title: string
+  content: string
+  id: string
+  createAt: string
+  updateAt: string
+}
+
+export type {MainPageContainerProps, IToDoData}

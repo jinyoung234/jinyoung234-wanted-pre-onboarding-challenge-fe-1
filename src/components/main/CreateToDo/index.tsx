@@ -2,14 +2,9 @@ import React from 'react'
 import {useForm} from 'react-hook-form'
 import {createTodos} from '../../../api/main'
 import {ToDoAddForm} from '../../../containers/common/FormContainer'
-import useConnect from '../../../hooks/useConnect'
 
 function CreateToDo() {
   const {register, handleSubmit, reset} = useForm()
-  const {ref: title, ...titleRest} = register('제목')
-  const {ref: content, ...contentRest} = register('내용')
-  const {connectRef: connectTitleRef} = useConnect(title)
-  const {connectRef: connectContentRef} = useConnect(content)
   const handleValidToDoAddForm = (data: any) => {
     const accessToken = window.localStorage.getItem('token') as string
     createTodos(accessToken, {
@@ -18,11 +13,12 @@ function CreateToDo() {
     }).then(res => {
       reset()
     })
+    window.location.href = '/'
   }
   return (
     <ToDoAddForm handleSubmit={handleSubmit(handleValidToDoAddForm)}>
-      <ToDoAddForm.Input type='text' connectRef={connectTitleRef} {...titleRest} />
-      <ToDoAddForm.Input type='text' connectRef={connectContentRef} {...contentRest} />
+      <ToDoAddForm.Input type='text' {...register('제목')} />
+      <ToDoAddForm.Input type='text' {...register('내용')} />
       <ToDoAddForm.Button disabledCondition={false} context='등록' />
     </ToDoAddForm>
   )

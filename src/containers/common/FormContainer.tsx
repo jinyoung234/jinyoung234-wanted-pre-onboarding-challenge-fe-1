@@ -1,6 +1,7 @@
 import React from 'react'
 import {useLocation} from 'react-router-dom'
 import Button from '../../components/common/Button'
+import FnButton from '../../components/common/Button/FnButton'
 import ErrorText from '../../components/common/ErrorText'
 import Input from '../../components/common/Input'
 import Label from '../../components/common/Label'
@@ -12,9 +13,13 @@ export const Form = Object.assign(FormContainer, {
   Input,
   ErrorText,
 })
-
 export const ToDoAddForm = Object.assign(FormContainer, {
   Button,
+  Input,
+})
+
+export const ToDoListForm = Object.assign(FormContainer, {
+  FnButton,
   Input,
 })
 
