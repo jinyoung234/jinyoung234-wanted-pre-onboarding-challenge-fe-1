@@ -37,7 +37,7 @@ function SignUpForm({
           })}
         />
         {errors && <Form.ErrorText message={pwErrorMessage} />}
-        <Form.Button context='등록' />
+        <Form.Button context='회원가입' />
       </Form>
     </>
   )

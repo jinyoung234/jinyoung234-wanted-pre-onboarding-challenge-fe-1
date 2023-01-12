@@ -14,6 +14,20 @@ interface SignUpProps {
   }
 }
 
+interface SignInProps {
+  form: {handleSubmit: UseFormHandleSubmit<IFormData>; onSignInValid: (data: IFormData) => void}
+  input: {register: UseFormRegister<IFormData>}
+  errorText: {
+    errors: Partial<
+      FieldErrorsImpl<{
+        [x: string]: string
+      }>
+    >
+    idErrorMessage: string | undefined
+    pwErrorMessage: string | undefined
+  }
+}
+
 interface IFormData {
   [key: string]: string
 }
@@ -23,4 +37,4 @@ interface IUser {
   password: string
 }
 
-export type {SignUpProps, IFormData, IUser}
+export type {SignUpProps, IFormData, IUser, SignInProps}
