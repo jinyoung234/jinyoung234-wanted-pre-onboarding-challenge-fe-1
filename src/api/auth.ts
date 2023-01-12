@@ -1,34 +1,16 @@
-import {AxiosError} from 'axios'
-import {IFormData} from '../components/auth/SignUpForm/type'
+import {AxiosResponse} from 'axios'
+import {IUser} from '../types'
 import {client} from '../utils/axiosInstance'
 import {END_POINT} from '../utils/endpoint'
 
-interface IErrorMessage {
-  details: string
+async function postSignUp(userParams: IUser) {
+  const {data, status}: AxiosResponse = await client.post(END_POINT.POST_SIGN_UP, userParams)
+  return {data, status}
 }
 
-const getSignUp = async (obj: IFormData) => {
-  try {
-    const response = await client.post(END_POINT.POST_SIGN_UP, obj)
-    console.log(response)
-    return response
-  } catch (error) {
-    const {response} = error as unknown as AxiosError
-    const {details} = response?.data as unknown as IErrorMessage
-    if (response?.status === 409) alert(details)
-  }
+async function postSignIn(userParams: IUser) {
+  const response = await client.post(END_POINT.POST_SIGN_IN, userParams)
+  return response
 }
 
-const getSignIn = async (obj: IFormData) => {
-  try {
-    const response = await client.post(END_POINT.POST_SIGN_IN, obj)
-    console.log(response)
-    return response
-  } catch (error) {
-    const {response} = error as unknown as AxiosError
-    const {details} = response?.data as unknown as IErrorMessage
-    if (response?.status === 400) alert(details)
-  }
-}
-
-export {getSignUp, getSignIn}
+export {postSignUp, postSignIn}

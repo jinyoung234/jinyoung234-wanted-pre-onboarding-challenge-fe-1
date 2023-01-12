@@ -1,12 +1,5 @@
-interface InputProps {
-  isTodo?: boolean
-  inputValue?: string
-  disabled?: boolean
-  isEnter?: boolean
-  type: string
-  id?: string
-  pwRef?: React.MutableRefObject<HTMLInputElement | null>
-  connectRef?: (e: HTMLInputElement) => void
-}
+import {InputHTMLAttributes} from 'react'
+
+type InputProps = InputHTMLAttributes<HTMLInputElement>
 
 export type {InputProps}

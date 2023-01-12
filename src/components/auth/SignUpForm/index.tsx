@@ -1,38 +1,43 @@
 import React from 'react'
-import {useForm} from 'react-hook-form'
-import {getSignUp} from '../../../api/auth'
-import useConnect from '../../../hooks/useConnect'
-import {IFormData} from './type'
-import {Form} from '../../../containers/common/FormContainer'
+import {Form} from '../../../wrappers/common/FormWrapper'
+import {SignUpProps} from '../../../types'
 import {emailRegex} from '../../../utils/regex'
 
-function SignUpForm() {
-  const {
-    register,
-    watch,
-    handleSubmit,
-    formState: {errors},
-  } = useForm<IFormData>()
-  const {ref: id, ...idRest} = register('id')
-  const {ref: pw, ...pwRest} = register('pw')
-  const {connectRef: connectIdRef} = useConnect(id)
-  const {inputRef: pwRef, connectRef: connectPWRef} = useConnect(pw)
-  const onValid = (data: IFormData) => {
-    getSignUp({email: data.id, password: data.pw}).then(res => {
-      if (res?.status === 200) window.location.href = 'auth/login'
-    })
-  }
-  console.log(watch())
+function SignUpForm({
+  form: {handleSubmit, onSignUpValid},
+  input: {register},
+  errorText: {errors, idErrorMessage, pwErrorMessage},
+}: SignUpProps) {
   return (
     <>
-      <Form handleSubmit={handleSubmit(onValid)}>
-        <Form.Label label={'ID'} htmlFor='id' />
-        <Form.Input {...register('id')} type='text' id='id' pwRef={pwRef} isEnter />
-        {errors && <Form.ErrorText message={errors?.id?.message} />}
-        <Form.Label label={'PW'} htmlFor='pw' />
-        <Form.Input {...register('pw')} type='password' id='pw' />
-        {errors && <Form.ErrorText message={errors?.pw?.message} />}
-        <Form.Button context='등록' disabledCondition={!(emailRegex.test(watch().id) && watch().pw.length >= 8)} />
+      <Form handleSubmit={handleSubmit(onSignUpValid)}>
+        <Form.Label label='ID' htmlFor='id' />
+        <Form.Input
+          type='text'
+          id='id'
+          {...register('email', {
+            required: '이메일 입력은 필수입니다.',
+            pattern: {
+              value: emailRegex,
+              message: '이메일 형식에 맞지 않습니다.',
+            },
+          })}
+        />
+        {errors && <Form.ErrorText message={idErrorMessage} />}
+        <Form.Label label='PW' htmlFor='pw' />
+        <Form.Input
+          type='password'
+          id='pw'
+          {...register('password', {
+            required: '비밀번호 입력은 필수입니다.',
+            minLength: {
+              value: 8,
+              message: '8자리 이상 비밀번호를 사용하세요.',
+            },
+          })}
+        />
+        {errors && <Form.ErrorText message={pwErrorMessage} />}
+        <Form.Button context='등록' />
       </Form>
     </>
   )
