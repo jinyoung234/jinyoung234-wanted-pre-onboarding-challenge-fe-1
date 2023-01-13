@@ -1,6 +1,11 @@
 import {QueryClient} from '@tanstack/react-query'
 
-export function generateQueryClient(): QueryClient {
+const queryKey = {
+  USER: 'user',
+  TODO: 'todo',
+}
+
+function generateQueryClient(): QueryClient {
   return new QueryClient({
     defaultOptions: {
       queries: {
@@ -14,4 +19,6 @@ export function generateQueryClient(): QueryClient {
   })
 }
 
-export const customQueryClient = generateQueryClient()
+const customQueryClient = generateQueryClient()
+
+export {customQueryClient, queryKey}

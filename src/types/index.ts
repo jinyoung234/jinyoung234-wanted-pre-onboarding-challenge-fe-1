@@ -1,5 +1,14 @@
 import {FieldErrorsImpl, UseFormHandleSubmit, UseFormRegister} from 'react-hook-form'
 
+interface IToDoForm {
+  todo: string
+}
+
+interface CreateToDoProps {
+  form: {handleSubmit: UseFormHandleSubmit<IToDoForm>; isValidToDo: (data: IToDoForm) => void}
+  input: {register: UseFormRegister<IToDoForm>}
+}
+
 interface SignUpProps {
   form: {handleSubmit: UseFormHandleSubmit<IFormData>; onSignUpValid: (data: IFormData) => void}
   input: {register: UseFormRegister<IFormData>}
@@ -37,4 +46,27 @@ interface IUser {
   password: string
 }
 
-export type {SignUpProps, IFormData, IUser, SignInProps}
+interface RequestCreateToDo {
+  title: string
+  content: string
+}
+interface ResponseCreateToDo {
+  data: {
+    title: string
+    content: string
+    id: string
+    createdAt: Date
+    updatedAt: Date
+  }
+}
+
+export type {
+  SignUpProps,
+  IFormData,
+  IUser,
+  SignInProps,
+  IToDoForm,
+  CreateToDoProps,
+  RequestCreateToDo,
+  ResponseCreateToDo,
+}

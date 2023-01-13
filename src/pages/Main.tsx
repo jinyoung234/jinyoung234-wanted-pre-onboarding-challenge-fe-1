@@ -1,12 +1,8 @@
 import React from 'react'
-import MainTemplate from '../templates/main/MainTemplate'
+import MainContainer from '../containers/main/Main.container'
 
 function Main() {
-  return (
-    <>
-      <MainTemplate />
-    </>
-  )
+  return <MainContainer />
 }
 
 export default Main
