@@ -1,13 +1,18 @@
 import React from 'react'
-import useToDoForm from '../../../hooks/useToDoForm'
+import {ToDoListProps} from '../../../types'
 import {UserToDoList} from '../../../wrappers/main/ToDoListWrapper'
 
-function ToDoList() {
-  const {createToDoProps} = useToDoForm()
+function ToDoList({todos, isLoading, isError, createToDo: {createToDoProps}}: ToDoListProps) {
+  if (isLoading) return <div>isLoading...</div>
+  if (isError) return <div>error</div>
   return (
     <UserToDoList>
       <UserToDoList.CreateToDo {...createToDoProps} />
-      <UserToDoList.Card />
+      <>
+        {todos?.map(todo => (
+          <UserToDoList.Card createdAt={todo.createdAt.split('T')[0]} title={todo.title} key={todo.id} />
+        ))}
+      </>
     </UserToDoList>
   )
 }
