@@ -1,5 +1,5 @@
 import {AxiosError} from 'axios'
-import {RequestCreateToDo, ResponseCreateToDo, ResponseGetToDos, ResponseToDoData} from '../types'
+import {RequestCreateToDo, ResponseCreateToDo, ResponseGetDetailToDos, ResponseGetToDos} from '../types'
 import {client} from '../utils/axiosInstance'
 import {END_POINT} from '../utils/endpoint'
 import {getStoredToken} from '../utils/localStorage'
@@ -8,19 +8,15 @@ interface IErrorMessage {
   details: string
 }
 
-const getTodosDetail = async (token: string, id: string) => {
-  try {
-    const response = await client.get(`${END_POINT.GET_TODOS}/${id}`, {
-      headers: {
-        Authorization: token,
-      },
-    })
-    return response.data
-  } catch (error) {
-    const {response} = error as unknown as AxiosError
-    const {details} = response?.data as unknown as IErrorMessage
-    if (response?.status === 400) alert(details)
-  }
+const getTodosDetail = async (todoId: string) => {
+  if (!todoId) return null
+  const accessToken = getStoredToken()
+  const data: ResponseGetDetailToDos = await client.get(`${END_POINT.GET_TODOS}/${todoId}`, {
+    headers: {
+      Authorization: accessToken,
+    },
+  })
+  return data
 }
 
 const deleteTodo = async (token: string, id: string) => {

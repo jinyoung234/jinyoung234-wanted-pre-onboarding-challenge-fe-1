@@ -1,11 +1,11 @@
 import React from 'react'
-import {ResponseToDoData} from '../../../types'
+import {ResponseToDoData, ToDoListProps} from '../../../types'
 
-type CardProps = Pick<ResponseToDoData, 'createdAt' | 'title'>
+type CardProps = Pick<ResponseToDoData, 'createdAt' | 'title' | 'id'> & Pick<ToDoListProps, 'handleViewTodo'>
 
-function Card({createdAt, title}: CardProps) {
+function Card({handleViewTodo, createdAt, title, id}: CardProps) {
   return (
-    <div>
+    <div onClick={() => handleViewTodo(id)}>
       <p>{createdAt}</p>
       <p>{title}</p>
     </div>

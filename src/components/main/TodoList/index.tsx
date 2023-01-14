@@ -2,7 +2,7 @@ import React from 'react'
 import {ToDoListProps} from '../../../types'
 import {UserToDoList} from '../../../wrappers/main/ToDoListWrapper'
 
-function ToDoList({todos, isLoading, isError, createToDo: {createToDoProps}}: ToDoListProps) {
+function ToDoList({todos, isLoading, isError, createToDo: {createToDoProps}, handleViewTodo}: ToDoListProps) {
   if (isLoading) return <div>isLoading...</div>
   if (isError) return <div>error</div>
   return (
@@ -10,7 +10,13 @@ function ToDoList({todos, isLoading, isError, createToDo: {createToDoProps}}: To
       <UserToDoList.CreateToDo {...createToDoProps} />
       <>
         {todos?.map(todo => (
-          <UserToDoList.Card createdAt={todo.createdAt.split('T')[0]} title={todo.title} key={todo.id} />
+          <UserToDoList.Card
+            handleViewTodo={handleViewTodo}
+            createdAt={todo.createdAt.split('T')[0]}
+            title={todo.title}
+            id={todo.id}
+            key={todo.id}
+          />
         ))}
       </>
     </UserToDoList>

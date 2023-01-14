@@ -1,10 +1,6 @@
 import {ReactNode} from 'react'
 
-interface MainPageWrapperProps {
-  children: ReactNode
-}
-
-interface ToDoListWrapperProps {
+interface MainWrapperProps {
   children: ReactNode
 }
 
@@ -16,4 +12,4 @@ interface IToDoData {
   updateAt: string
 }
 
-export type {MainPageWrapperProps, ToDoListWrapperProps, IToDoData}
+export type {MainWrapperProps, IToDoData}

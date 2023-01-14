@@ -50,16 +50,48 @@ interface RequestCreateToDo {
   title: string
   content: string
 }
+
+interface ResponseToDoData {
+  title: string
+  content: string
+  id: string
+  createdAt: string
+  updatedAt: string
+}
+
 interface ResponseCreateToDo {
+  data: ResponseToDoData
+}
+
+interface ResponseGetToDos {
   data: {
-    title: string
-    content: string
-    id: string
-    createdAt: Date
-    updatedAt: Date
+    data: ResponseToDoData[]
   }
 }
 
+interface ResponseGetDetailToDos {
+  data: {
+    data: ResponseToDoData
+  }
+}
+
+interface ToDoListProps {
+  todos: ResponseToDoData[] | undefined
+  isLoading: boolean
+  isError: boolean
+  createToDo: {
+    createToDoProps: CreateToDoProps
+  }
+  handleViewTodo: (todoId: string) => void
+}
+
+interface ToDoBoardProps {
+  todoDetail: {
+    todoDetail: Pick<ResponseToDoData, 'content' | 'createdAt' | 'title' | 'id'>
+    isError: boolean
+    isLoading: boolean
+  }
+}
 export type {
   SignUpProps,
   IFormData,
@@ -69,4 +101,9 @@ export type {
   CreateToDoProps,
   RequestCreateToDo,
   ResponseCreateToDo,
+  ResponseToDoData,
+  ResponseGetDetailToDos,
+  ResponseGetToDos,
+  ToDoListProps,
+  ToDoBoardProps,
 }

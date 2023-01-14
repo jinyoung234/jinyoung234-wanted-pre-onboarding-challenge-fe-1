@@ -1,14 +1,14 @@
 import React from 'react'
-import TodoDetail from '../../components/main/TodoDetail'
+import TodoBoard from '../../components/main/TodoBoard'
 import TodoList from '../../components/main/TodoList'
-import {MainPageWrapperProps} from './type'
+import {MainWrapperProps} from './type'
 
 export const MainPage = Object.assign(MainPageWrapper, {
   TodoList,
-  TodoDetail,
+  TodoBoard,
 })
 
-function MainPageWrapper({children}: MainPageWrapperProps) {
+function MainPageWrapper({children}: MainWrapperProps) {
   return <div>{children}</div>
 }
 
