@@ -16,7 +16,7 @@ function useGetTodoDetail() {
     isError,
     isLoading,
   } = useQuery([queryKey.TODO, todoId], () => getTodosDetail(todoId), {
-    enabled: !!todos,
+    enabled: !!todoId,
     onError: (errorResponse: AxiosError<{details: string}>) => {
       if (errorResponse.message === 'Network Error') alert(errorResponse.message)
       const STATUS_400_ERROR = errorResponse?.response?.status
@@ -24,7 +24,7 @@ function useGetTodoDetail() {
       if (STATUS_400_ERROR) alert(ERROR_MESSAGE)
     },
   })
-  const {title, content, createdAt, id} = data?.data.data as ResponseToDoData
+  const {title, content, createdAt, id} = data?.data?.data as ResponseToDoData
   const todoDetail = {createdAt: createdAt?.split('T')[0], title, content, id}
   const toDoBoardProps = {
     todoDetail: {
