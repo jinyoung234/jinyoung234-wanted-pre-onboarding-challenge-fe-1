@@ -53,6 +53,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:e47e54ad26381858dfb213ed42014296af44753a1b18ad1eac094a50191cfe227bd625900ff529fca74192fd996aed5cb5a2507f55cc7a030da5487784b765b3#npm:18.2.0"],\
             ["react-hook-form", "virtual:e47e54ad26381858dfb213ed42014296af44753a1b18ad1eac094a50191cfe227bd625900ff529fca74192fd996aed5cb5a2507f55cc7a030da5487784b765b3#npm:7.41.1"],\
+            ["react-is", "npm:18.2.0"],\
             ["react-router-dom", "virtual:e47e54ad26381858dfb213ed42014296af44753a1b18ad1eac094a50191cfe227bd625900ff529fca74192fd996aed5cb5a2507f55cc7a030da5487784b765b3#npm:6.6.1"],\
             ["react-scripts", "virtual:e47e54ad26381858dfb213ed42014296af44753a1b18ad1eac094a50191cfe227bd625900ff529fca74192fd996aed5cb5a2507f55cc7a030da5487784b765b3#npm:5.0.1"],\
             ["recoil", "virtual:e47e54ad26381858dfb213ed42014296af44753a1b18ad1eac094a50191cfe227bd625900ff529fca74192fd996aed5cb5a2507f55cc7a030da5487784b765b3#npm:0.7.6"],\
@@ -16779,7 +16780,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["hoist-non-react-statics", "npm:3.3.2"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:e47e54ad26381858dfb213ed42014296af44753a1b18ad1eac094a50191cfe227bd625900ff529fca74192fd996aed5cb5a2507f55cc7a030da5487784b765b3#npm:18.2.0"],\
-            ["react-is", null],\
+            ["react-is", "npm:18.2.0"],\
             ["shallowequal", "npm:1.1.0"],\
             ["supports-color", "npm:5.5.0"]\
           ],\
@@ -17702,6 +17703,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:e47e54ad26381858dfb213ed42014296af44753a1b18ad1eac094a50191cfe227bd625900ff529fca74192fd996aed5cb5a2507f55cc7a030da5487784b765b3#npm:18.2.0"],\
             ["react-hook-form", "virtual:e47e54ad26381858dfb213ed42014296af44753a1b18ad1eac094a50191cfe227bd625900ff529fca74192fd996aed5cb5a2507f55cc7a030da5487784b765b3#npm:7.41.1"],\
+            ["react-is", "npm:18.2.0"],\
             ["react-router-dom", "virtual:e47e54ad26381858dfb213ed42014296af44753a1b18ad1eac094a50191cfe227bd625900ff529fca74192fd996aed5cb5a2507f55cc7a030da5487784b765b3#npm:6.6.1"],\
             ["react-scripts", "virtual:e47e54ad26381858dfb213ed42014296af44753a1b18ad1eac094a50191cfe227bd625900ff529fca74192fd996aed5cb5a2507f55cc7a030da5487784b765b3#npm:5.0.1"],\
             ["recoil", "virtual:e47e54ad26381858dfb213ed42014296af44753a1b18ad1eac094a50191cfe227bd625900ff529fca74192fd996aed5cb5a2507f55cc7a030da5487784b765b3#npm:0.7.6"],\
