@@ -1,6 +1,5 @@
 import {useMutation, useQueryClient} from '@tanstack/react-query'
 import {AxiosError} from 'axios'
-import React from 'react'
 import {createTodos} from '../../api/main'
 import {RequestCreateToDo} from '../../types'
 import {queryKey} from '../../utils/queryClient'

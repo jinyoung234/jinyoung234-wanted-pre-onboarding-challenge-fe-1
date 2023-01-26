@@ -12,6 +12,7 @@ function useGetTodos() {
     isLoading,
     isError,
   } = useQuery([queryKey.TODO], getTodos, {
+    suspense: true,
     onError: (errorResponse: AxiosError) => {
       if (errorResponse.message === 'Network Error') alert(errorResponse.message)
     },

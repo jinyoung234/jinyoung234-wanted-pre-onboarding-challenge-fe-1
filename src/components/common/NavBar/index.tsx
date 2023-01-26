@@ -1,9 +1,10 @@
 import React from 'react'
+import {clearStoredToken} from '../../../utils/localStorage'
 import {NavWrapper} from './style'
 
 function NavBar() {
   const handleLogout = () => {
-    window.localStorage.removeItem('token')
+    clearStoredToken()
     window.location.href = '/auth/login'
   }
   return (
